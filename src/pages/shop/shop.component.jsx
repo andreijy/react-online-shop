@@ -1,6 +1,6 @@
 import React from "react";
-import { Route } from "react-router-dom";
 import { connect } from "react-redux";
+import { Route } from "react-router-dom";
 
 import CollectionOverviewContainer from "../../components/collection-overview/collection-overview.container";
 import CollectionCategoryContainer from "../../components/collection-category/collection-category.container";
@@ -24,7 +24,7 @@ class ShopPage extends React.Component {
         />
         <Route
           path={`${match.path}/:collectionId`}
-          container={CollectionCategoryContainer}
+          component={CollectionCategoryContainer}
         />
       </div>
     );
