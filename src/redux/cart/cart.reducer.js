@@ -30,6 +30,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
           (cartItem) => cartItem.id !== action.payload.id
         ),
       };
+    case CartActionTypes.CLEAR_ALL_FROM_CART:
+      return {
+        ...state,
+        cartItems: [],
+      };
     default:
       return state;
   }
