@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 
@@ -7,29 +7,25 @@ import CollectionCategoryContainer from "../../components/collection-category/co
 
 import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
 
-class ShopPage extends React.Component {
-  componentDidMount() {
-    const { dispatch } = this.props;
+const ShopPage = ({ match, dispatch }) => {
+  useEffect(() => {
     dispatch(fetchCollectionsStart());
-  }
+  }, [dispatch]);
 
-  render() {
-    const { match } = this.props;
-    return (
-      <div>
-        <Route
-          exact
-          path={`${match.path}`}
-          component={CollectionOverviewContainer}
-        />
-        <Route
-          path={`${match.path}/:collectionId`}
-          component={CollectionCategoryContainer}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Route
+        exact
+        path={`${match.path}`}
+        component={CollectionOverviewContainer}
+      />
+      <Route
+        path={`${match.path}/:collectionId`}
+        component={CollectionCategoryContainer}
+      />
+    </div>
+  );
+};
 
 //
 // below if we want to explicitly declare mapDispatchToProps for updateCollections action
