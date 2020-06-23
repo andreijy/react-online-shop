@@ -43,6 +43,8 @@ class App extends React.Component {
   }
 
   render() {
+    // TODO: add contact page
+    // TODO: add catalogue page based on https://themes.gohugo.io/theme/meghna-hugo/
     return (
       <div>
         <CurrentUserContext.Provider value={this.state.currentUser}>
